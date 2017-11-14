@@ -17,27 +17,20 @@
   
             </div>
 			    <ul class="nav navbar-nav navbar-right" style="font-size:20px; word-spacing: 10px;">
-                <li><a href="/home/"><font color="Midnightblue">Home  </font></a></li>
-                <li><a href="/registration/"><font color="Midnightblue">Register</font></a></li>
+                <li><a href="/registration/home/"><font color="Midnightblue">Home  </font></a></li>
+                <li><a href="/patientrecord/"><font color="Midnightblue">Patient Record</font></a></li>
                 </ul>
         </div>
     </nav>		
 
 </head>
 
-<body>
 <div class="wrapper">
        <div class="container">
   
-		<h1>Log In</h1>
-                <h2>to book an appointment</h2>
-		
-		<form class="form" >
-			<input type="text" placeholder="Username">
-			<input type="password" placeholder="Password">
-			<button type="submit" id="login-button">Login</button>
-		</form>
-       </div>
+ {% block content %}
+            {% endblock %}
+
   
 	
 	<ul class="bg-bubbles">
@@ -56,5 +49,10 @@
 
 </body>
 </html>
+
+
+
+
+
 
 

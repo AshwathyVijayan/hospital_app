@@ -5,5 +5,7 @@ class HomePageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'home.html', context=None)
 
+
 class RegisterUser(TemplateView):
-    template_name = "registration.html"
+    def get(self, request, **kwargs):
+        return render(request, 'registration.html', context=None)
