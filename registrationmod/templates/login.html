@@ -3,14 +3,18 @@
 
 
 <div class="container">
-		<br><br><br>
-		<form class="form" >
+		<br><br>
+
+<h1> Welcome {{user.username}} </h2>
+<br>
+		<form class="form" method="post" action="." >
 			
-			<button type="submit"id="login-button"><a href="/login/"> Make Appointment</button>
+			<button type="submit"id="login-button"><a href="/login/newappt"> Make Appointment</button>
 <br><br><br>
 <br>
 <button type="submit"id="login-button"><a href="/login/"> View Appointments</button>
 		</form>
+{% csrf_token %}
        </div>
 
 {% endblock %}

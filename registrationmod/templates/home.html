@@ -32,10 +32,11 @@
 		<h1>Log In</h1>
                 <h2>to book an appointment</h2>
 		
-		<form class="form" >
+		<form class="form" method="post" action=".">
 			<input type="text" placeholder="Username">
 			<input type="password" placeholder="Password">
-			<button type="submit"id="login-button"><a href="/login/"> Login</button>
+			<button type="submit"id="login-button" value="login"><a href="/login/"> Login</button>
+{% csrf_token %}
 		</form>
        </div>
   

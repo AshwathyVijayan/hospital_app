@@ -12,8 +12,16 @@ class Register(models.Model):
 	patientid = models.AutoField( primary_key=True)
 	adress = models.TextField()
 	phone = models.FloatField()
-password = models.CharField(max_length=100)
+	password = models.CharField(max_length=100)
 
-
-def __str__(self):
+	def __str__(self):
 		return self.patientid
+
+
+class Appointment(models.Model):
+	department = models.TextField()
+	date = models.DateField()
+
+	def __str__(self):
+		return self.date
+
