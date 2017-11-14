@@ -8,18 +8,39 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <script src="{% static 'js/index.js' %}"></script>
     <link rel="stylesheet/less" href="{% static 'less/style.less' %}"/>
+
+
+<nav "navbar navbar-inverse navbar-fixed-top" >
+        <div class="container-fluid">
+            <div class="navbar-header" class="navbar-header" style="font-family:impact;color:white">
+		      <img class="img-rounded" src="w.png" style="height=60px;width:200px; margin-left:80px">  
+            </div>
+			    <ul class="nav navbar-nav navbar-right" style="font-size:20px; word-spacing: 10px; margin-right:20%">
+                <li><a href="#"><font color="Midnightblue">Login  </font></a></li>
+                <li><a href="#"><font color="Midnightblue">Sign Up</font></a></li>
+                </ul>
+        </div>
+    </nav>		
+
 </head>
+
 <body>
 <div class="wrapper">
 	<div class="container">
-		<h1>Welcome</h1>
-                <a href="/register/">About Me</a>
+		<h1>Log In</h1>
+                <h2>to book an appointment</h2>
 		
+<div class="col-sm-6">
 		<form class="form">
 			<input type="text" placeholder="Username">
 			<input type="password" placeholder="Password">
 			<button type="submit" id="login-button">Login</button>
 		</form>
+</div>
+<div class="col-sm-6">
+
+</div>
+
 	</div>
 	
 	<ul class="bg-bubbles">
