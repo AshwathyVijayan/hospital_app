@@ -2,28 +2,49 @@
 <html>
 
 <head>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-    <script src="{% static 'js/index.js' %}"></script>
-    <link rel="stylesheet/less" href="{% static 'less/style.less' %}"/>
 
 
-<nav "navbar navbar-inverse navbar-fixed-top">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <script src="{% static 'js/index.js' %}"></script>
+  <link rel="stylesheet/less" href="{% static 'less/style.less' %}"/>
+
+
+<nav class="navbar ">
         <div class="container-fluid">
             <div class="navbar-header" class="navbar-header" style="font-family:impact;color:white">
-		<img src="{% static "img/w.png" %}" alt="My image" style="height=40px;width:100px;"/>      
+		<img src="{% static "img/w.png" %}" alt="My image" style="height=40px;width:100px;"/> 
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+<span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 </button>     
   
             </div>
+<div class="collapse navbar-collapse" id="myNavbar">
+                  
+
 			    <ul class="nav navbar-nav navbar-right" style="font-size:20px; word-spacing: 10px;">
                 <li><a href="/home/"><font color="Midnightblue">Home  </font></a></li>
-                <li><a href="/patientrecord/"><font color="Midnightblue">Patient Record</font></a></li>
+                <li><a href="/patientrecord/"><font color="Midnightblue">PatientRecord</font></a></li>
                 </ul>
+</div>
         </div>
-    </nav>		
+    </nav>
+
+		
 
 </head>
+<body>
 
 <div class="wrapper">
        

@@ -5,11 +5,14 @@
 <div class="container">
 	<br><br>
 	<!--{% if user.is_authenticated %}-->
-	<h1> Welcome {{user.username}} </h2><br>
-		<form method="post" action="." >
+	<h2>Welcome!</h2>
+  
+		<form method="post" >
 			{% csrf_token %}
-			<button type="submit"id="login-button"><a href="/newappt"> Make Appointment</button><br><br><br>
-			<button type="submit"id="login-button"><a href="/login"> View Appointments</button><br><br><br>
+			<h2><a href="/home/newappt" style="color:white;">Make Appointment</a></h2><br><br>
+			<h2><a href="/login" style="color:white;">View Appointment</a></h2><br><br>
+			<!--<button type="submit"id="login-button"><a href="/home/newappt">Make Appointment</button><br><br><br>
+			<button type="submit"id="login-button"><a href="/login"> View Appointments</button><br><br><br>-->
 			<h2><a href="/login" style="color:white;">Logout</a></h2>
 		</form>
 	<!---{% else %}

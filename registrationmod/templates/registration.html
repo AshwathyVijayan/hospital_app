@@ -14,9 +14,6 @@
     <input type="button" name="generate" class="next action-button" value="generate" />
     <button class="btn" type="button" onClick="send_pin()"><i class="icon-share"></i> Get PIN</button>
 
-    <!--<input type="text" name="otp" placeholder="Enter otp" />
-
-    <input type="button" name="next" class="next action-button" value="Next" /> -->
   </fieldset>
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
@@ -29,18 +26,4 @@
 </form>
 
 {% endblock %}
-<script>
-function send_pin() {
-    $.ajax({
-                url: "{% url 'ajax_send_pin' %}",
-                type: "POST",
-                data: { mobile_number:  $("#mobile_number").val() },
-            })
-            .done(function(data) {
-                alert("PIN sent via SMS!");
-            })
-            .fail(function(jqXHR, textStatus, errorThrown) {
-                alert(errorThrown + ' : ' + jqXHR.responseText);
-            });
-}
-</script>
+
