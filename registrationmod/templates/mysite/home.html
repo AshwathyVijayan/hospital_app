@@ -4,21 +4,23 @@
 
 <div class="container">
 	<br><br>
-	<!--{% if user.is_authenticated %}-->
 	<h2>Welcome!</h2>
   
-		<form method="post" >
+		<form method="post" action="/home/newappt" >
 			{% csrf_token %}
-			<h2><a href="/home/newappt" style="color:white;">Make Appointment</a></h2><br><br>
-			<h2><a href="/login" style="color:white;">View Appointment</a></h2><br><br>
-			<!--<button type="submit"id="login-button"><a href="/home/newappt">Make Appointment</button><br><br><br>
-			<button type="submit"id="login-button"><a href="/login"> View Appointments</button><br><br><br>-->
-			<h2><a href="/signin" style="color:white;">Logout</a></h2>
-		</form>
-	<!---{% else %}
-	<p><a href="/login">Login</a></p>
-    <p><a href="/register">Register</a></p>
-    {% endif %}-->
+			<button type="submit" value = "Make Appointment">Make Appointment</button>
+		</form> 
+
+        <form method="post" action="registration" >
+			{% csrf_token %}
+			<button type="submit" value = "View Appointment">View Appointment</button>
+		</form> 
+		<form method="post" action="/signin" >
+			{% csrf_token %}
+			<button type="submit" value = "Logout">Logout</button>
+		</form> 
+
+
 </div>
 
 {% endblock %}
