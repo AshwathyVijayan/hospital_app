@@ -3,40 +3,44 @@
 
 <form id="msform">
   <ul id="progressbar">
-    <li class="active">Account Setup</li>
-    <li>Mobile registration</li>
+    <li class="active">Mobile Registration</li>
     <li>Personal Details</li>
   </ul>
   <fieldset>
-    <h2 class="fs-title">Create your account</h2>
-    <h3 class="fs-subtitle">This is step 1</h3>
-    <input type="text" name="email" placeholder="Email" />
-    <input type="password" name="pass" placeholder="Password" />
-    <input type="password" name="cpass" placeholder="Confirm Password"/>
-    <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-  <fieldset>
     <h2 class="fs-title">Mobile Registration</h2>
     <h3 class="fs-subtitle">Confirm your mobile number using otp</h3>
-    <input type="text" name="mobile" placeholder="Mobile Number" />
-
+    <input type="text" name="Name" placeholder="Name" />
+    <input type="text" id="mobile_number" name="mobile_number" placeholder="1111-111-111" required>
     <input type="button" name="generate" class="next action-button" value="generate" />
+    <button class="btn" type="button" onClick="send_pin()"><i class="icon-share"></i> Get PIN</button>
 
-    <input type="text" name="otp" placeholder="Enter otp" />
+    <!--<input type="text" name="otp" placeholder="Enter otp" />
 
-    <input type="button" name="next" class="next action-button" value="Next" />
+    <input type="button" name="next" class="next action-button" value="Next" /> -->
   </fieldset>
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
     <h3 class="fs-subtitle">Personal Details are private</h3>
-    <input type="text" name="fname" placeholder="First Name" />
-    <input type="text" name="lname" placeholder="Last Name" />
     <input type="text" name="gender" placeholder="Gender" />
     <input type="text" name="age" placeholder="Age" />
     <textarea name="address" placeholder="Address"></textarea>
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="submit" name="submit" class="submit action-button" value="Submit" />
   </fieldset>
 </form>
 
 {% endblock %}
+<script>
+function send_pin() {
+    $.ajax({
+                url: "{% url 'ajax_send_pin' %}",
+                type: "POST",
+                data: { mobile_number:  $("#mobile_number").val() },
+            })
+            .done(function(data) {
+                alert("PIN sent via SMS!");
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown + ' : ' + jqXHR.responseText);
+            });
+}
+</script>

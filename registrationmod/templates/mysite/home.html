@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container">
+	<br><br>
+	{% if user.is_authenticated %}
+	<h1> Welcome {{user.username}} </h2><br>
+		<form method="post" action="." >
+			{% csrf_token %}
+			<button type="submit"id="login-button"><a href="/newappt"> Make Appointment</button><br><br><br>
+			<button type="submit"id="login-button"><a href="/login"> View Appointments</button><br><br><br>
+			<h2><a href="/login" style="color:white;">Logout</a></h2>
+		</form>
+	{% else %}
+	<p><a href="/login">Login</a></p>
+    <p><a href="/register">Register</a></p>
+    {% endif %}
+</div>
+
+{% endblock %}
