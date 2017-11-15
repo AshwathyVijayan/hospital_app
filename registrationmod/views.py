@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django import forms
-from .forms import UserRegistrationForm
+
 
 
 class HomePageView(TemplateView):
@@ -21,7 +21,7 @@ class RegisterUser(TemplateView):
 
 class LoginUser(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'registration/login.html', context=None)
+        return render(request, 'index/login.html', context=None)
 
 class NewAppt(TemplateView):
     def get(self, request, **kwargs):
@@ -30,23 +30,24 @@ class NewAppt(TemplateView):
 def home(request):
     return render(request, 'mysite/home.html')
 
-def register(request):
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            userObj = form.cleaned_data
-            username = userObj['username']
-            email =  userObj['email']
-            password =  userObj['password']
-            if not (User.objects.filter(username=username).exists() or User.objects.filter(email=email).exists()):
-                User.objects.create_user(username, email, password)
-                user = authenticate(username = username, password = password)
-                login(request, user)
-                return HttpResponseRedirect('/')
-            else:
-                raise forms.ValidationError('Looks like a username with that email or password already exists')
+def login(request):
+    return render(request, 'index/login.html')
 
-    else:
-        form = UserRegistrationForm()
+def loginprocess(request):
+	username =  request.POST.get("username","")
+	password = request.POST.get("password","")
+	if(len(username) ==0  and len(password) == 0):
+		return render(request,'index/login.html',{'loginmessage' : 'Enter valid Name and password'  })
+	user_data = User.objects.all().filter(username = username)
+	got = True
+	for e in user_data:
+		got = False
+	if(got):
+		return render(request,'index/login.html',{'loginmessage' : 'Profile Does Not Exist Please Register '})
 
-    return render(request, 'mysite/register.html', {'form' : form})
+	for e in user_data:
+		if(e.password != password):
+			return render(request,'index/login.html',{'loginmessage' : 'Password/User Name entered is wrong please Try again' })
+
+	request.session['logid'] = patientid
+	return HttpResponseRedirect('mysite/home')

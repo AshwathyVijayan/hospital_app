@@ -5,22 +5,27 @@ from django.db import models
 from django.utils import timezone
 
 class Register(models.Model):
-	name = models.CharField(max_length=20)
-	gender = models.CharField(max_length=100)
+	username = models.CharField(max_length=30)
+	gender = models.CharField(max_length=10)
 	dob = models.DateField()
-	
-	patientid = models.AutoField( primary_key=True)
-	adress = models.TextField()
-	phone = models.FloatField()
-	password = models.CharField(max_length=100)
+	patientid = models.FloatField(default=0)
+	address = models.TextField()
+	phoneno = models.IntegerField()
+	password = models.CharField(max_length=50)
 
 	def __str__(self):
 		return self.patientid
 
 
 class Appointment(models.Model):
+	
+	patientid = models.ForeignKey(Register,on_delete=models.CASCADE)
 	department = models.TextField()
 	date = models.DateField()
 
 	def __str__(self):
-		return self.date
+		return str(self.patientid)
+'''
+	def get_absolute_url(self):
+        return reverse('NewAppt',kwargs={'pk':self.purch_id})
+'''

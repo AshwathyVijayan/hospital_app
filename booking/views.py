@@ -22,7 +22,6 @@ class BookingViewMixin(object):
 class BookingCreateView(BookingViewMixin, CreateView):
     """View to create a new ``Booking`` instance."""  
 
-
     def get_success_url(self):
         return reverse('booking_detail', kwargs={'pk': self.object.pk})
 

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form id="msform">
+<form id="msform" action="registration" method="post">
+  {%csrf_token%}
   <ul id="progressbar">
     <li class="active">Mobile Registration</li>
     <li>Personal Details</li>
+    <li>Sign In</li>
   </ul>
   <fieldset>
     <h2 class="fs-title">Mobile Registration</h2>
     <h3 class="fs-subtitle">Confirm your mobile number using otp</h3>
-    <input type="text" name="Name" placeholder="Name" />
-    <input type="text" id="mobile_number" name="mobile_number" placeholder="1111-111-111" required>
-    <input type="button" name="generate" class="next action-button" value="generate" />
-    <button class="btn" type="button" onClick="send_pin()"><i class="icon-share"></i> Get PIN</button>
-
+    <input type="text" name="Name" placeholder="Username" value = "{{username}}" required="">
+    <input type="text" name="mobile_number" placeholder="Mobile Number" value = "{{phoneno}}" required="">
+    <button class="btn" type="button" onClick="send_pin()"><i class="icon-share"></i> Generate OTP</button>
+    <input type="text" name="Name" placeholder="Enter OTP" />
+    <input type="button" name="generate" class="next action-button" value="Next" />
   </fieldset>
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
@@ -24,6 +26,7 @@
     <input type="submit" name="submit" class="submit action-button" value="Submit" />
   </fieldset>
 </form>
+<p>-{{signupmessage}}-</p>
 
 {% endblock %}
 
