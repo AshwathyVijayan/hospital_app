@@ -18,20 +18,21 @@
   <link rel="stylesheet/less" href="{% static 'less/style.less' %}"/>
 
   <nav class="navbar navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header" class="navbar-header" style="font-family:impact;color:white">
-        <img src="{% static "img/w.png" %}" alt="My image" style="height=40px;width:100px;"/> 
+    <div class="container-fluid">      
+      <div class="navbar-header">
+        <a href="/signin/"style="font-size: 30px; color:black;"><img class="img-responsive2" src="{% static "img/logo.jpg" %}" alt="My image" style="height:130px;"><b>Book My Doc</a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </button>     
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse " id="myNavbar">
         <ul class="nav navbar-nav navbar-right" style="font-size:20px; word-spacing: 10px;">
           <li><a href="/home/"><font color="Midnightblue">Home  </font></a></li>
           <li><a href="/registration/"><font color="Midnightblue">Register</font></a></li>
         </ul>
       </div>
+
     </div>
   </nav>
 
